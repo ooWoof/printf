@@ -16,7 +16,7 @@
 int handle_print(const char *fmt, int *ind, va_list list, char buffer[],
                  int flags, int width, int precision, int size)
 {
-    int i, printed_chars = -1;
+    int i, printed_chars = -1, unknow_len = 0;
 
     fmt_t fmt_types[] = {
         {'c', print_char}, {'s', print_string}, {'%', print_percent},
@@ -29,7 +29,7 @@ int handle_print(const char *fmt, int *ind, va_list list, char buffer[],
     for (i = 0; fmt_types[i].fmt != '\0'; i++)
     {
         if (fmt[*ind] == fmt_types[i].fmt)
-            return fmt_types[i].fn(list, buffer, flags, width, precision, size);
+            return (fmt_types[i].fn(list, buffer, flags, width, precision, size);
     }
 
     if (fmt_types[i].fmt == '\0')
@@ -38,7 +38,7 @@ int handle_print(const char *fmt, int *ind, va_list list, char buffer[],
             return (-1);
 
         if (fmt[*ind - 1] == ' ')
-            write(1, " ", 1);
+           unknow_len += write(1, " ", 1);
         else if (width)
         {
             (*ind)--;
@@ -49,8 +49,8 @@ int handle_print(const char *fmt, int *ind, va_list list, char buffer[],
             return (1);
         }
 
-        write(1, &fmt[*ind], 1);
-        return (1);
+        unknow_len += write(1, &fmt[*ind], 1);
+        return (unknow_len);
     }
 
     return (printed_chars);
