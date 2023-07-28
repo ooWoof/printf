@@ -28,8 +28,8 @@
 struct fmt
 {
 	char fmt;
-	int (*fn)(va_list, char[], int, int, int, int,);
-}
+	int (*fn)(va_list, char[], int, int, int, int);
+};
 
 /**
  * typedef struct fmt fmt_t - struct op
@@ -109,7 +109,7 @@ int write_unsgnd(int is_negative, int ind, char buffer[],
 
 /* utils */
 
-int is-printable(char);
+int is_printable(char);
 int append_hexa_code(char, char[], int);
 int is_digit(char);
 
