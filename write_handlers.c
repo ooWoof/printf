@@ -1,4 +1,6 @@
 #include "main.h"
+#include <stdarg.h>
+#include <unistd.h>
 
 /************************* WRITE HANDLE *************************/
 
@@ -95,8 +97,7 @@ int write_num(int ind, char buffer[], int flags, int width, int prec, int length
     if (prec == 0 && ind == BUFF_SIZE - 2 && buffer[ind] == '0' && width == 0)
         return (0);
 
-    /* Rest of the function code remains unchanged */
-
+   
     return (write(1, &buffer[ind], length));
 }
 
@@ -114,7 +115,7 @@ int write_num(int ind, char buffer[], int flags, int width, int prec, int length
  */
 int write_unsgnd(int is_negative, int ind, char buffer[], int flags, int width, int precision, int size)
 {
-    /* Rest of the function code remains unchanged */
+   
 
     return (write(1, &buffer[ind], length));
 }
@@ -134,8 +135,7 @@ int write_unsgnd(int is_negative, int ind, char buffer[], int flags, int width, 
  */
 int write_pointer(char buffer[], int ind, int width, int length, int flags, char extra_c, char padd, int padd_start)
 {
-    /* Rest of the function code remains unchanged */
-
+   
     return (write(1, &buffer[ind], BUFF_SIZE - ind - 1));
 }
 
