@@ -42,7 +42,7 @@ int handle_print(const char *format, va_list types)
     }
 
     if (unknow_len != 0)
-        return (-1); // Return -1 if there's an unknown format specifier.
+        return (-1);
     else
         return (printed_chars);
 }

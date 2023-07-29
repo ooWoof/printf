@@ -71,7 +71,7 @@ int print_non_printable(va_list types, char buffer[],
     UNUSED(size);
 
     if (str == NULL)
-        return (writes(1, "(null)", 6));
+        return (write(1, "(null)", 6));
     while (str[i] != '\0')
     {
         if (is_printable(str[i]))
@@ -97,7 +97,7 @@ int print_non_printable(va_list types, char buffer[],
  * Return: number of chars printed
  */
 int print_reverse(va_list types, char buffer[],
-                  int flags, int width, int precision, int size)
+                  int flags, int precision, int size)
 {
     char *str;
     int i, count = 0;
