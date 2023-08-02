@@ -71,13 +71,17 @@ int print_non_printable(va_list types, char buffer[],
     UNUSED(size);
 
     if (str == NULL)
-        return (writes(1, "(null)", 6));
+        return (write(1, "(null)", 6));
     while (str[i] != '\0')
-    {
+      {
         if (is_printable(str[i]))
+        {
             buffer[i + offset] = str[i];
+        }
         else
+        {
             offset += append_hexa_code(str[i], buffer, i + offset);
+        }
         i++;
     }
 
@@ -105,6 +109,8 @@ int print_reverse(va_list types, char buffer[],
     UNUSED(buffer);
     UNUSED(flags);
     UNUSED(size);
+    UNUSED(width);
+
 
     str = va_arg(types, char *);
 

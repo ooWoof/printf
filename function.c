@@ -4,21 +4,53 @@
 
 /************************* PRINT CHAR *************************/
 /**
- * print_char - Prints a char
- * @types: List of arguments
- * @buffer: Buffer array to handle print
- * @flags: Calculates active flags
- * @width: Width
- * @precision: Precision specification
- * @size: Size specifier
+ * print_char - Prints a character.
+ * @types: List of arguments (va_list).
+ * @buffer: Buffer array to handle print.
+ * @flags: Calculates active flags.
+ * @width: Get width.
+ * @precision: Precision specification.
+ * @size: Size specifier.
  *
- * Return: Number of chars printed
+ * Return: Number of characters printed.
  */
-int print_char(va_list types, char buffer[],
-              int flags, int width, int precision, int size)
+int print_char(va_list types, char buffer[], int flags,
+               int width, int precision, int size)
 {
     char c = va_arg(types, int);
-    return (handle_write_char(c, buffer, flags, width, precision, size));
+    int pad = 0;
+
+    UNUSED(size);
+    UNUSED(precision);
+    UNUSED(flags);
+
+    if (width < 0)
+    {
+        width *= -1;
+        pad = 1;
+    }
+
+    if (!pad)
+    {
+        if (width > 1)
+        {
+            width--;
+            if (flags & F_MINUS)
+            {
+                buffer[0] = c;
+                buffer += print_padding(buffer, ' ', width, 1);
+            }
+            else
+            {
+                buffer += print_padding(buffer, ' ', width, 1);
+                buffer[0] = c;
+            }
+            return (width + 1);
+        }
+    }
+    buffer[0] = c;
+    buffer++;
+    return (1);
 }
 
 /************************* PRINT A STRING *************************/
