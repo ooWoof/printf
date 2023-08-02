@@ -26,6 +26,7 @@ int handle_print(const char *fmt, int *ind, va_list list, char buffer[],
 		if (fmt[*ind] == fmt_types[i].fmt)
 			return (fmt_types[i].fn(list, buffer, flags, width, precision, size));
 
+<<<<<<< HEAD
 	if (fmt_types[i].fmt == '\0')
 	{
 		if (fmt[*ind] == '\0')
@@ -46,4 +47,10 @@ int handle_print(const char *fmt, int *ind, va_list list, char buffer[],
 		return (unknow_len);
 	}
 	return (printed_chars);
+=======
+    if (unknow_len != 0)
+        return (-1);
+    else
+        return (printed_chars);
+>>>>>>> c6ec2594cea11ab77e3bdc0701e91bae2ebca015
 }

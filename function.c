@@ -18,6 +18,7 @@ int print_char(va_list types, char buffer[], int flags,
                int width, int precision, int size)
 {
     char c = va_arg(types, int);
+<<<<<<< HEAD
     int pad = 0;
 
     UNUSED(size);
@@ -51,6 +52,9 @@ int print_char(va_list types, char buffer[], int flags,
     buffer[0] = c;
     buffer++;
     return (1);
+=======
+    return (handler_write_char(c, buffer, flags, width, precision, size));
+>>>>>>> c6ec2594cea11ab77e3bdc0701e91bae2ebca015
 }
 
 /************************* PRINT A STRING *************************/
