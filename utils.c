@@ -1,6 +1,7 @@
 #include "main.h"
 /**
- * is_printable: evaluates if a char is printable
+ * is_printable: Evaluates if a char is printable
+ *
  * @c: char to be evaluated
  *
  * Return: 1 if c is printable, 0 otherwise
@@ -69,12 +70,13 @@ long int convert_size_number(long int num, int size)
 }
 
 /**
- * convert_size_unsgnd - casts a number to the specified size
- * @num: number to be casted
- * @size: number indicating the type to be casted
+ * convert_size_unsgnd - Converts an unsigned number based on size specifier.
+ * @num: The original unsigned number.
+ * @size: The size specifier.
  *
- * return: casted value of num
+ * Return: The converted unsigned number.
  */
+
 long int convert_size_unsgnd(unsigned long int num, int size)
 {
 	if (size == S_LONG)
