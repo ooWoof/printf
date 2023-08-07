@@ -1,6 +1,6 @@
 #include "main.h"
 
-#define UNUSED(X) (void)(X)
+
 
 /************************* WRITE HANDLE *************************/
 /**

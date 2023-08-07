@@ -18,43 +18,7 @@ int print_char(va_list types, char buffer[], int flags,
                int width, int precision, int size)
 {
     char c = va_arg(types, int);
-<<<<<<< HEAD
-    int pad = 0;
-
-    UNUSED(size);
-    UNUSED(precision);
-    UNUSED(flags);
-
-    if (width < 0)
-    {
-        width *= -1;
-        pad = 1;
-    }
-
-    if (!pad)
-    {
-        if (width > 1)
-        {
-            width--;
-            if (flags & F_MINUS)
-            {
-                buffer[0] = c;
-                buffer += print_padding(buffer, ' ', width, 1);
-            }
-            else
-            {
-                buffer += print_padding(buffer, ' ', width, 1);
-                buffer[0] = c;
-            }
-            return (width + 1);
-        }
-    }
-    buffer[0] = c;
-    buffer++;
-    return (1);
-=======
-    return (handler_write_char(c, buffer, flags, width, precision, size));
->>>>>>> c6ec2594cea11ab77e3bdc0701e91bae2ebca015
+    return (handle_write_char(c, buffer, flags, width, precision, size));
 }
 
 /************************* PRINT A STRING *************************/
